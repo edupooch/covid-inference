@@ -1,27 +1,10 @@
-  
 from __future__ import print_function
 import argparse
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torchvision import datasets, transforms, models
-from torch.utils.data.sampler import BatchSampler, RandomSampler
-
-from torch.utils.data import Dataset, DataLoader
-from PIL import Image
-
+from torchvision import transforms
 from architecture.densenet121 import load_densenet121
-
-import time
-import os
-import cv2
 from PIL import Image
 import pydicom as dicom
-
-from sklearn.metrics import roc_auc_score, average_precision_score
-import numpy as np
-import pandas as pd
 
 MODEL_PATH = 'model/densenet_covid.pt'
             
