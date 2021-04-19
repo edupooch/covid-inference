@@ -1,7 +1,7 @@
 numpy
 opencv-python==4.5.1.48
-torch==1.8.1+cpu 
-torchvision==0.9.1+cpu 
+torch==1.8.1
+torchvision==0.9.1
 torchaudio===0.8.1
 setuptools
 wheel
