@@ -43,13 +43,7 @@ def prepare_input(image):
 
     return torch.tensor(image, requires_grad=True)
 
-def main():
-    parser = argparse.ArgumentParser(description='COVID Inference args')
-    parser.add_argument('--dcm-path', type=str, required=True,
-                        help='Path of the dicom file to load') 
-                                       
-    args = parser.parse_args()
-    
+def inference(file):    
     use_cuda = torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
     val_transform = get_transform()
@@ -60,7 +54,7 @@ def main():
     model.eval()
     net = model
     
-    dcm_path = args.dcm_path           
+    dcm_path = file          
     ds = dicom.dcmread(dcm_path, force=True)
     pixel_array = ds.pixel_array
     image = Image.fromarray(pixel_array) 
@@ -86,8 +80,6 @@ def main():
         output = model(data)
     score = f'{output[0,1].item():.6f}'
     
-    print(score)
-    
     return score, cam
 
 def get_transform():
@@ -100,6 +92,3 @@ def get_transform():
             transforms.ToTensor(),
             transforms.Normalize(mean, std)
         ])
-
-if __name__ == '__main__':
-    main()
