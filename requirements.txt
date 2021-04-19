@@ -4,6 +4,8 @@ torch==1.8.1
 torchvision==0.9.1
 torchaudio==0.8.1
 setuptools
-wheel
+wheel==0.36.2
 tqdm
-twine
+twine==3.4.1
+pydicom==2.1.2
+scikit-image==0.18.1

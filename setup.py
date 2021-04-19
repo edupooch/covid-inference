@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
     print(required)
 
 setuptools.setup(
-    name='Covid inference',
+    name='covid-inference',
     version='0.1',
     packages=setuptools.find_packages(),
     install_requires=required,

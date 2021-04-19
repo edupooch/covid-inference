@@ -2,17 +2,17 @@ from __future__ import print_function
 import argparse
 import torch
 from torchvision import transforms
-from architecture.densenet121 import load_densenet121
+from .architecture.densenet121 import load_densenet121
 from PIL import Image
 import pydicom as dicom
 
-from interpretability.grad_cam import GradCAM, GradCamPlusPlus
+from .interpretability.grad_cam import GradCAM, GradCamPlusPlus
 from skimage import io
 from torch import nn
 import numpy  as np
 import cv2
 
-MODEL_PATH = 'model/densenet_covid.pt'
+MODEL_PATH = './covid_inference/model/densenet_covid.pt'
 # MODEL_PATH = 'model/densenet_covid_fulldata.pt'
 
 def gen_cam(image, mask):
@@ -49,7 +49,7 @@ def inference(file):
     val_transform = get_transform()
     
     model = load_densenet121()
-    model.load_state_dict(torch.load(MODEL_PATH))
+    model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
     model.to(device)  
     model.eval()
     net = model

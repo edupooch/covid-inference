@@ -1,6 +1,8 @@
 setup.py
-Covid_inference.egg-info/PKG-INFO
-Covid_inference.egg-info/SOURCES.txt
-Covid_inference.egg-info/dependency_links.txt
-Covid_inference.egg-info/requires.txt
-Covid_inference.egg-info/top_level.txt
+covid_inference/__init__.py
+covid_inference/inference.py
+covid_inference.egg-info/PKG-INFO
+covid_inference.egg-info/SOURCES.txt
+covid_inference.egg-info/dependency_links.txt
+covid_inference.egg-info/requires.txt
+covid_inference.egg-info/top_level.txt
